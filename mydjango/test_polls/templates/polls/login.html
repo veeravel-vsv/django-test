@@ -1,0 +1,7 @@
+<form action="{% url 'index_name' %}" method="POST" name = "frmLogin"> {% csrf_token %}
+	<input type="text" name="usrText">
+	<input type="password" name="pwdText">
+	<input type="submit" name="btnSubmit">
+</form>
+
+<!-- <a href="<%url polls:index%>">test</a> -->
