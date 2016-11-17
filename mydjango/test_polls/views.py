@@ -1,20 +1,20 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render, get_object_or_404, get_list_or_404, Http404
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from .models import LoginUser
+from django.urls import reverse
 # from .forms import LoginForm
 # Create your views here.
 
 def login(request):
-	# usr_id = get_object_or_404(LoginUser, pk = users_id)
 	return render(request, 'polls/login.html')
-	# return render(request, 'polls/index.html', {'a':users_id})
 
 def index(request):
-	if request.method == "POST":
-		login_usr = LoginUser(request.POST)
-		if login_usr.is_valid():
-			usr_name = login_usr.cleaned_data['usrText']
+	try:
+		user_detail = LoginUser.objects.get(username=request.POST['usrText'])
+	except LoginUser.DoesNotExist:
+		raise Http404("User does not exit")
+		
+	if request.POST['pwdText'] == user_detail.password:
+		return render(request, 'polls/index.html',{'usr_name' : request.POST['usrText']})
 	else:
-		login_usr = LoginUser()
-	# login_usr = LoginUser(request.POST)
-	return render(request, 'polls/index.html',{'usr_name':login_usr})
+		return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

@@ -1,7 +1,18 @@
 <form action="{% url 'index_name' %}" method="POST" name = "frmLogin"> {% csrf_token %}
-	<input type="text" name="usrText">
-	<input type="password" name="pwdText">
-	<input type="submit" name="btnSubmit">
+	<table align="center">
+		<tr>
+			<td>Username:</td>
+			<td><input type="text" name="usrText"></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type="password" name="pwdText"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="btnSubmit"></td>
+		</tr>
+	</table>
 </form>
 
 <!-- <a href="<%url polls:index%>">test</a> -->
