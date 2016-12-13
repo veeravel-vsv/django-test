@@ -1,18 +1,43 @@
-<form action="{% url 'index_name' %}" method="POST" name = "frmLogin"> {% csrf_token %}
-	<table align="center">
-		<tr>
-			<td>Username:</td>
-			<td><input type="text" name="usrText"></td>
-		</tr>
-		<tr>
-			<td>Password:</td>
-			<td><input type="password" name="pwdText"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><input type="submit" name="btnSubmit"></td>
-		</tr>
-	</table>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/index-css.css' %}"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
+	
+	<script type="text/javascript" src="{% static 'polls/index.js' %}"></script>
+	
+</head>
+<body>
+<div id="container4" align="center">
+	<div id="login-container">
+		<div id="login-head" align="center">
+			<label>Login</label>
+		</div>
+		<div id="login-content" align="left">
+			<div id="login-content-main">
+				<form id="login-form" name="login" action="{% url 'index_name' %}" method="post">{%csrf_token%}
+					<div id="form-row1">
+						<label>Username:</label>
+						<input type="text" name="txtUser">
+					</div>
+					<div id="form-row1">
+						<label>Password:</label>
+						<input type="password" name="txtPassword">
+					</div>
+					<div id="form-button">
+						<button><label>Login</label></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
-<!-- <a href="<%url polls:index%>">test</a> -->
+
+</body>
+</html>
+
+

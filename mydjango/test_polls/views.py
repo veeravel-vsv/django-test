@@ -10,11 +10,11 @@ def login(request):
 
 def index(request):
 	try:
-		user_detail = LoginUser.objects.get(username=request.POST['usrText'])
+		user_detail = LoginUser.objects.get(username=request.POST.get('txtUser',False))
 	except LoginUser.DoesNotExist:
 		raise Http404("User does not exit")
 		
-	if request.POST['pwdText'] == user_detail.password:
-		return render(request, 'polls/index.html',{'usr_name' : request.POST['usrText']})
+	if request.POST['txtPassword'] == user_detail.password:
+		return render(request, 'polls/index.html',{'usr_name' : user_detail.username})
 	else:
 		return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
