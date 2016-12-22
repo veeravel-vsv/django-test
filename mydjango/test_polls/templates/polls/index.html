@@ -1,16 +1,13 @@
-<!-- {% load static%}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/login_style.css' %}"/>
-<p class = "center large">This is test paragraph for style sheet</p>
-Welcome<h1>{{usr_name}}</h1>
-<a href="{% url 'login' %}">Logout</a>
- -->
-
+{% include 'polls/base.html' %}
+ 
+ {% block content%}
  {% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{% static 'polls/index-css.css' %}"/>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<!-- <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
 	<script type="text/javascript" src="{% static 'polls/index.js' %}"></script>
@@ -182,11 +179,11 @@ Welcome<h1>{{usr_name}}</h1>
 <div id="container3">
 	<!-- <div id="test"></div> -->
 	<div id="img-container">
-		<div id="img1-div1"><img id="img1" src="images/11.jpg" width="200px" height="200px"></div>
-		<div id="img2-div2"><img id="img1" src="images/21.jpg" width="200px" height="200px"></div>
-		<div id="img3-div3"><img id="img1" src="images/31.jpg" width="200px" height="200px"></div>
-		<div id="img4-div4"><img id="img1" src="images/41.jpg" width="200px" height="200px"></div>
-		<div id="img5-div5"><img id="img1" src="images/51.jpg" width="200px" height="200px"></div>			
+		<div id="img1-div1"><img id="img1" src="{%static 'polls/images/1.jpg' %}" width="200px" height="200px"></div>
+		<div id="img2-div2"><img id="img1" src="{%static 'polls/images/2.jpg' %}" width="200px" height="200px"></div>
+		<div id="img3-div3"><img id="img1" src="{%static 'polls/images/3.jpg' %}" width="200px" height="200px"></div>
+		<div id="img4-div4"><img id="img1" src="{%static 'polls/images/4.jpg' %}" width="200px" height="200px"></div>
+		<div id="img5-div5"><img id="img1" src="{%static 'polls/images/5.jpg' %}" width="200px" height="200px"></div>			
 	</div>
 </div>
 
@@ -194,5 +191,7 @@ Welcome<h1>{{usr_name}}</h1>
 
 </body>
 </html>
+
+{% endblock %}
 
 

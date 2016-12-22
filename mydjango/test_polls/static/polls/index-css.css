@@ -262,3 +262,14 @@ li:last-child{
 	background-color: white;
 	color: black;
 }
+
+
+#create-user-container{
+	border: 0px solid green;
+	height: 10px;
+}
+
+#create-user-container p{
+	font-size: 15px;
+	font-weight: bold;
+}

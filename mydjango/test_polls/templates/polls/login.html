@@ -1,5 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
+{%block content%}
 <html>
 <head>
 	<title></title>
@@ -20,17 +21,20 @@
 			<div id="login-content-main">
 				<form id="login-form" name="login" action="{% url 'index_name' %}" method="post">{%csrf_token%}
 					<div id="form-row1">
-						<label>Username:</label>
-						<input type="text" name="txtUser">
+						{{form.username.label_tag}}
+						{{form.username}}
 					</div>
 					<div id="form-row1">
-						<label>Password:</label>
-						<input type="password" name="txtPassword">
+						{{form.password.label_tag}}
+						{{form.password}}
 					</div>
 					<div id="form-button">
 						<button><label>Login</label></button>
 					</div>
 				</form>
+				<div id="create-user-container" align="center">
+					<p><a href="#">Create user</a></p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -39,5 +43,5 @@
 
 </body>
 </html>
-
+{%endblock%}
 
